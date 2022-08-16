@@ -20,3 +20,19 @@ hasil akhir nya untuk kedua cara diatas kurang lebih seperti gambar dibawah ini:
 ![git branch](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-branch.png)
 ![git branch github web](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-branch-on-github-web.png)
 
+## IMPLEMENTASI GIT PUSH, PULL, STASH, MERGE
+### PUSH
+![git push](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-push.png)
+
+### PULL
+![git pull](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-pull.png)
+
+
+### STASH
+![git stash](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-stash.png)
+
+### MERGE
+![git merge](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/merging.png)
+
+
+
