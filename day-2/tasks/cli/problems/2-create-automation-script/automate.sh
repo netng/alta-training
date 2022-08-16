@@ -23,19 +23,32 @@ createAboutMe () {
     mkdir -p "$ABOUT_ME/$ABOUT_ME_PERSONAL" && mkdir -p "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL"
     echo "$FB_URL/$FB_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PERSONAL/facebook.txt"
     echo "$IN_URL/$IN_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL/linkedin.txt"
+    cd ..
 
 }
 
 createMyFriends () {
     cd "$ROOT_FOLDER_NAME $FOLDER_DATE"
     mkdir $MY_FRIENDS
-    cd $MY_FRIENDS && curl $MY_FRIENDS_RAW_SOURCE --output list_of_my_friends.txt
+    cd $MY_FRIENDS && curl $MY_FRIENDS_RAW_SOURCE --output list_of_my_friends.txt && cd ..
+    cd ..
+}
+
+createMySystemInfo () {
+    cd "$ROOT_FOLDER_NAME $FOLDER_DATE"
+    mkdir $MY_SYSTEM_INFO && cd $MY_SYSTEM_INFO
+    echo "My username: $(whoami)" >> about_this_laptop.txt
+    echo "With host: $(uname -a)" >> about_this_laptop.txt
+    ping -c 3 google.com >> internet_connection.txt
+    cd ..
+
 }
 
 main () {
     createRootFolder
     createAboutMe
     createMyFriends
+    createMySystemInfo
 }
 
 main
