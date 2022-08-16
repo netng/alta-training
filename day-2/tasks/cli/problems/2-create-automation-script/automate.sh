@@ -24,7 +24,6 @@ createAboutMe () {
     echo "$FB_URL/$FB_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PERSONAL/facebook.txt"
     echo "$IN_URL/$IN_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL/linkedin.txt"
     cd ..
-
 }
 
 createMyFriends () {
@@ -41,10 +40,26 @@ createMySystemInfo () {
     echo "With host: $(uname -a)" >> about_this_laptop.txt
     ping -c 3 google.com >> internet_connection.txt
     cd ..
+}
+
+validate () {
+    if [[ -z "$ROOT_FOLDER_NAME" ]]; then
+        echo "Silakan masukan parameter pertama (nama kamu)"
+        exit 1
+    elif [[ -z "$FB_USERNAME" ]]; then
+        echo "Silakan masukan parameter kedua (FB username)"
+        exit 1
+    elif [[ -z "$IN_USERNAME" ]]; then
+        echo "Silakan masukan parameter ketiga (linkedin username)"
+        exit 1
+    else
+        return true
+    fi
 
 }
 
 main () {
+    validate
     createRootFolder
     createAboutMe
     createMyFriends
