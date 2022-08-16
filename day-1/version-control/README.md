@@ -8,7 +8,8 @@ Untuk membuat repository baru di github yaitu dengan cara klik `New Repository`,
 Untuk membuat branch baru pada existing repository, bisa dengan beberapa cara yaitu melalui command line dan melalui github web page:
 
 - Create New Branch via Commandline
-```$ git branch nama-branch-baru
+```
+$ git branch nama-branch-baru
 $ git checkout nama-branch-baru
 $ git push origin nama-branch-baru
 ```
