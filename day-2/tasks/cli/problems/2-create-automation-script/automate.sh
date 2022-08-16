@@ -53,7 +53,7 @@ validate () {
         echo "Silakan masukan parameter ketiga (linkedin username)"
         exit 1
     else
-        return true
+        return 0
     fi
 
 }
