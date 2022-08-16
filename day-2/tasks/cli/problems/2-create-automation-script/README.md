@@ -13,3 +13,4 @@ Contoh: `$ bash automate.sh nandang bueukowl nsopyan`
 
 result:
 
+![automate](https://github.com/netng/alta-training/blob/development/day-2/tasks/cli/problems/2-create-automation-script/assets/automate.png)
