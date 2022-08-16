@@ -17,7 +17,7 @@ $ git push origin nama-branch-baru
 Dengan cara mengklik pada dropdown menu Branch pada repository terkait > lalu klik `View all branch` > klik tombol `New branch` > tentukan nama branch nya dan pilih Branch Source nya.
 
 hasil akhir nya untuk kedua cara diatas kurang lebih seperti gambar dibawah ini:
-![git branch](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-branch.png)
+![git branch](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/new-branch.png)
 ![git branch github web](https://github.com/netng/alta-training/blob/development/day-1/version-control/assets/day%201%20-%20git/git-branch-on-github-web.png)
 
 ## IMPLEMENTASI GIT PUSH, PULL, STASH, MERGE
