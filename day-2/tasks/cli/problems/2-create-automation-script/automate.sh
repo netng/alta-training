@@ -9,20 +9,17 @@ MY_FRIENDS="my_friends"
 MY_SYSTEM_INFO="my_system_info"
 FB_USERNAME=$2
 IN_USERNAME=$3
+FB_URL="https://www.facebook.com"
 
 
 createRootFolder () {
-    if [[ $1 -eq 0 ]]; then
-        echo "Please type yourname after ./automate command. Ex. ./automate nandang"
-        exit 1;
-    else
-        mkdir "$1 $FOLDER_DATE"
-    fi
+    mkdir "$1 $FOLDER_DATE"
 }
 
 createAboutMe () {
     cd "$ROOT_FOLDER_NAME $FOLDER_DATE"
     mkdir -p "$ABOUT_ME/$ABOUT_ME_PERSONAL" && mkdir -p "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL"
+    echo "$FB_URL/$FB_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PERSONAL/facebook.txt"
 
 }
 
