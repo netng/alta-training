@@ -1,13 +1,26 @@
 #!/bin/bash
 
-rootFolderName=$1
+ROOT_FOLDER_NAME=$1
+FOLDER_DATE=$(date)
+ABOUT_ME="about_me"
+ABOUT_ME_PERSONAL="personal"
+ABOUT_ME_PROFESSIONAL="professional"
+MY_FRIENDS="my_friends"
+MY_SYSTEM_INFO="my_system_info"
 
-create_root_folder () {
-    mkdir "$1 $(date)"
+
+createRootFolder () {
+    mkdir "$1 $FOLDER_DATE"
+}
+
+createAboutMe () {
+    cd "$ROOT_FOLDER_NAME $FOLDER_DATE"
+    mkdir -p "$ABOUT_ME/$ABOUT_ME_PERSONAL" && mkdir -p "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL"
 }
 
 main () {
-    create_root_folder $rootFolderName
+    createRootFolder $ROOT_FOLDER_NAME
+    createAboutMe
 }
 
 main
