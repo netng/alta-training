@@ -10,6 +10,7 @@ MY_SYSTEM_INFO="my_system_info"
 FB_USERNAME=$2
 IN_USERNAME=$3
 FB_URL="https://www.facebook.com"
+IN_URL="https://www.linkedin.com/in"
 
 
 createRootFolder () {
@@ -20,6 +21,7 @@ createAboutMe () {
     cd "$ROOT_FOLDER_NAME $FOLDER_DATE"
     mkdir -p "$ABOUT_ME/$ABOUT_ME_PERSONAL" && mkdir -p "$ABOUT_ME/$ABOUT_ME_PROFESSIONAL"
     echo "$FB_URL/$FB_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PERSONAL/facebook.txt"
+    echo "$IN_URL/$IN_USERNAME" > "$ABOUT_ME/$ABOUT_ME_PERSONAL/linkedin.txt"
 
 }
 
