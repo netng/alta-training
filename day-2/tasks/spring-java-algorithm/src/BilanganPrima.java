@@ -27,10 +27,8 @@ public class BilanganPrima {
             if (number % i == 0) {
                 System.out.println(String.format("Angka %s bukan bilangan prima", number));
                 return;
-            } else {
-                System.out.println(String.format("Angka %s adalah bilangan prima", number));
-                return;
             }
         }
+        System.out.println(String.format("Angka %s adalah bilangan prima", number));
     }
 }
