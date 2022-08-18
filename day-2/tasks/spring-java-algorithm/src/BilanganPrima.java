@@ -2,12 +2,7 @@ import javax.sound.midi.Soundbank;
 
 public class BilanganPrima {
     public static void main(String[] args) {
-        isPrime(1);
-        isPrime(2);
-        isPrime(3);
-        isPrime(9);
-        isPrime(4);
-        isPrime(17);
+        isPrime(121);
     }
 
     static void isPrime(Integer number) {
