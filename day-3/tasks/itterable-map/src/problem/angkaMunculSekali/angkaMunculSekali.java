@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 public class angkaMunculSekali {
     public static void main(String[] args) {
 
-        getOneEachSameNumber("75623752");
-        getOneEachSameNumber("1122");
+        getOnlyUniqueNumber("75623752");
+        getOnlyUniqueNumber("1122");
     }
 
-    static void getOneEachSameNumber(String number) {
+    static void getOnlyUniqueNumber(String number) {
         String[] arrString = new String[number.length()];
         arrString = number.split("");
 
