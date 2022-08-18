@@ -18,10 +18,10 @@ public class VokalKonsonan {
                 case 'u':
                 case 'e':
                 case 'o':
-                    numberOfVowel += 1;
+                    numberOfVowel++;
                     break;
                 default:
-                    numberOfConsonant += 1;
+                    numberOfConsonant++;
             }
         }
 
