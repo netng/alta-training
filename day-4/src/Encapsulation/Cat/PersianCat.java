@@ -64,7 +64,7 @@ public class PersianCat extends Cat {
                         "Tipe Wajah: %s\n" +
                         "Tipe Moncong: %s",
                 super.getFurColor(),
-                super.getNumOfLeg(),
+                super.numOfLeg, // <-- bisa diakses directly karena property numOfLeg adalah protected dan bisa diakss oleh sub class nya.
                 origin,
                 hairType,
                 typeOfFace,

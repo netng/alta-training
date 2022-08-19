@@ -2,7 +2,7 @@ package Encapsulation.Cat;
 
 public class Cat {
     private String furColor;
-    private Integer numOfLeg;
+    protected Integer numOfLeg;
 
     public Cat(String furColor, Integer numOfLeg) {
         this.furColor = furColor;
