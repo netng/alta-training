@@ -8,6 +8,14 @@ public class Board extends Kandang {
     private static Map<Integer, String> pairedKandang = new HashMap<>();
     private static Integer correctAnswer = 0;
 
+    public static final String ansi_reset = "\u001B[0m";
+    private static final String ansi_red = "\u001B[31m";
+    private static final String ansi_green = "\u001B[32m";
+    private static final String ansi_yellow = "\u001B[33m";
+    private static final String ansi_blue = "\u001B[34m";
+
+
+
     public static void runTheGame() {
         switch (correctAnswer) {
             case 0 -> {
@@ -15,7 +23,7 @@ public class Board extends Kandang {
                 showMenu();
             }
             case 3 -> {
-                showInitialKandang();
+                showExistingKandang();
                 System.out.println("Selamat anda menjawab semua kandang!");
                 System.exit(0);
             }
@@ -31,19 +39,19 @@ public class Board extends Kandang {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("--- PILIHAN ---");
-        System.out.println("K: Kambing");
-        System.out.println("Z: Zebra");
-        System.out.println("B: Bebek");
+        System.out.println(ansi_blue + "K" + ansi_reset + ": Kambing" );
+        System.out.println(ansi_red + "Z" + ansi_reset + ": Zebra");
+        System.out.println(ansi_yellow + "B" + ansi_reset + ": Bebek");
         System.out.print("Masukkan tebakan: ");
         String answer = scanner.nextLine().toUpperCase();
 
         if (pairedKandang.get(open).equals(answer)) {
-            System.out.println("Tebakan benar!");
+            System.out.println(ansi_green + "Tebakan benar!" + ansi_reset);
             correctAnswer++;
             pairedKandang.put(open, pairedKandang.get(open).toLowerCase());
             runTheGame();
         } else {
-            System.out.println("Tebakan salah!");
+            System.out.println(ansi_yellow + "Tebakan salah!" + ansi_reset);
             runTheGame();
         }
 
@@ -79,7 +87,7 @@ public class Board extends Kandang {
         for (Map.Entry<Integer, String> kandang : pairedKandang.entrySet()) {
             System.out.println(String.format(
                     "|||\n|%s|\n|||",
-                    kandang.getValue().equals(kandang.getValue().toUpperCase()) ? kandang.getKey() : kandang.getValue().toUpperCase()
+                    kandang.getValue().equals(kandang.getValue().toUpperCase()) ? kandang.getKey() : ansi_yellow + kandang.getValue().toUpperCase() + ansi_reset
             ));
             System.out.println();
         }
