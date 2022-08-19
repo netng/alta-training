@@ -15,6 +15,7 @@ public class Board extends Kandang {
                 showMenu();
             }
             case 3 -> {
+                showInitialKandang();
                 System.out.println("Selamat anda menjawab semua kandang!");
                 System.exit(0);
             }
@@ -37,11 +38,12 @@ public class Board extends Kandang {
         String answer = scanner.nextLine().toUpperCase();
 
         if (pairedKandang.get(open).equals(answer)) {
-            System.out.print("Tebakan benar!");
+            System.out.println("Tebakan benar!");
             correctAnswer++;
+            pairedKandang.put(open, pairedKandang.get(open).toLowerCase());
             runTheGame();
         } else {
-            System.out.print("Tebakan salah!");
+            System.out.println("Tebakan salah!");
             runTheGame();
         }
 
@@ -74,12 +76,12 @@ public class Board extends Kandang {
     }
 
     public static Map<Integer, String> showExistingKandang() {
-
         for (Map.Entry<Integer, String> kandang : pairedKandang.entrySet()) {
             System.out.println(String.format(
                     "|||\n|%s|\n|||",
-                    kandang.getKey()
+                    kandang.getValue().equals(kandang.getValue().toUpperCase()) ? kandang.getKey() : kandang.getValue().toUpperCase()
             ));
+            System.out.println();
         }
         return pairedKandang;
     }

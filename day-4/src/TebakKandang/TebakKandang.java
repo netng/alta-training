@@ -12,6 +12,7 @@ public class TebakKandang {
         Object kandang = Kandang.buildKandang(numberOfKandang);
         Board.runTheGame();
         Board.showMenu();
+
     }
 
 
