@@ -4,7 +4,6 @@ public class CatApp {
     public static void main(String[] args) {
         Cat cat = new Cat("Hitam", 4);
         cat.showIdentity();
-        System.out.println("==============");
         /**
          * Cat.furColor(); <-- Error jika directly access to property
          * karena property furColor adalah private
@@ -21,9 +20,8 @@ public class CatApp {
         System.out.println(cat.getNumOfLeg());
 
         cat.showIdentity();
+        System.out.println("==============");
 
-        System.out.println();
-        System.out.println("==== PersianCat Instance ====");
         /**
          * PersianCat extends Cat
          * Polymorphism

@@ -56,12 +56,12 @@ public class PersianCat extends Cat {
     @Override
     public void showIdentity() {
         System.out.println(String.format(
-                "Saya Kucing dengan detail:\n" +
-                        "Warna Bulu: %s\n" +
-                        "Jumlah Kaki: %s\n" +
-                        "Asal dari: %s\n" +
-                        "Tipe Rambut: %s\n" +
-                        "Tipe Wajah: %s\n" +
+                "Saya Kucing dengan detail, " +
+                        "Warna Bulu: %s, " +
+                        "Jumlah Kaki: %s, " +
+                        "Asal dari: %s, " +
+                        "Tipe Rambut: %s, " +
+                        "Tipe Wajah: %s, " +
                         "Tipe Moncong: %s",
                 super.getFurColor(),
                 super.numOfLeg, // <-- bisa diakses directly karena property numOfLeg adalah protected dan bisa diakss oleh sub class nya.

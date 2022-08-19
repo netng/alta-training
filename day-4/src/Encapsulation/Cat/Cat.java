@@ -27,7 +27,7 @@ public class Cat {
 
     public void showIdentity() {
         System.out.println(String.format(
-                "Saya Kucing dengan detail:\nWarna Bulu: %s\njumlah kaki: %s", furColor, numOfLeg
+                "Saya Kucing dengan detail, Warna Bulu: %s, jumlah kaki: %s", furColor, numOfLeg
         ));
     }
 }
