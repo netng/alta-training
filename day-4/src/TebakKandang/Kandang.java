@@ -45,7 +45,4 @@ public class Kandang {
         return listKandang;
     }
 
-    public static void openKandang() {
-
-    }
 }

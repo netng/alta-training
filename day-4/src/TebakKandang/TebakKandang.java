@@ -9,7 +9,7 @@ public class TebakKandang {
         System.out.print("Masukan jumlah kandang: ");
         int numberOfKandang = scanner.nextInt();
 
-        Object kandang = Kandang.buildKandang(numberOfKandang);
+        Kandang.buildKandang(numberOfKandang);
         Board.runTheGame();
         Board.showMenu();
 
