@@ -1,9 +1,6 @@
-package Encapsulation;
+package Encapsulation.Cat;
 
-import Encapsulation.Cat.Cat;
-import Encapsulation.Cat.PersianCat;
-
-public class EncapsulationApp {
+public class CatApp {
     public static void main(String[] args) {
         Cat cat = new Cat("Hitam", 4);
         cat.showIdentity();
