@@ -16,7 +16,6 @@ public class arrayMerge {
     static void mergeArrayAsUnique(String[] array1, String[] array2) {
         String[] mergedArray = Arrays.copyOf(array1, array1.length + array2.length);
         System.arraycopy(array2, 0, mergedArray, array1.length, array2.length);
-        System.out.println(Arrays.toString(mergedArray));
 
         Set<String> uniqueArray = new LinkedHashSet<>(Arrays.asList(mergedArray));
         System.out.println(uniqueArray);
