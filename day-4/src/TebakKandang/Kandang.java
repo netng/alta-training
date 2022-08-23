@@ -19,7 +19,7 @@ public class Kandang {
         return name;
     }
 
-    public static Object buildKandang(Integer numberOfKandang) {
+    public static List<Kandang> buildKandang(Integer numberOfKandang) {
 
         while (numberOfKandang > 0) {
             switch (numberOfKandang) {
