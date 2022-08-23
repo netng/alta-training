@@ -62,7 +62,14 @@ public class Board extends Kandang {
         System.out.print("Pilih kandang yang ingin dibuka: ");
 
         Integer open = scanner.nextInt();
-        showAnswer(open);
+
+        if (pairedKandang.get(open).equals(pairedKandang.get(open).toUpperCase())) {
+            showAnswer(open);
+        } else {
+            System.out.println("Kandang sudah ditebak. Pilih kandang lain ya!");
+            showExistingKandang();
+            showMenu();
+        }
 
     }
     public static Map<Integer, String> showInitialKandang() {
