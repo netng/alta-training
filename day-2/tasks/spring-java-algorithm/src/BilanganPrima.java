@@ -3,6 +3,7 @@ import javax.sound.midi.Soundbank;
 public class BilanganPrima {
     public static void main(String[] args) {
         isPrime(121);
+        isPrime(Integer.MAX_VALUE);
     }
 
     static void isPrime(Integer number) {
