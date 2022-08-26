@@ -4,9 +4,14 @@ import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IPostService {
+    List<CreatePostResponseDTO> getAllPosts();
     CreatePostResponseDTO createNewPost(CreatePostRequestDTO requestDTO);
 
-    List<CreatePostResponseDTO> getAllPosts();
+    CreatePostResponseDTO getPostById(Long id);
+
+    CreatePostResponseDTO updatePost(Long id, CreatePostRequestDTO requestDTO);
+
 }

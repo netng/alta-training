@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,7 +30,20 @@ public class PostService implements IPostService{
 
         Post createdPost = postRepository.save(post);
 
-        return converToDto(createdPost);
+        return convertToDto(Optional.of(createdPost));
+    }
+
+    @Override
+    public CreatePostResponseDTO getPostById(Long id) {
+        Optional<Post> post = postRepository.findById(id);
+        return convertToDto(post);
+    }
+
+    @Override
+    public CreatePostResponseDTO updatePost(Long id, CreatePostRequestDTO requestDTO) {
+        Optional<Post> post = postRepository.findById(id);
+        post.get().setContent(requestDTO.getContent());
+        return convertToDto(Optional.of(postRepository.save(post.get())));
     }
 
     @Override
@@ -48,7 +62,7 @@ public class PostService implements IPostService{
         return modelMapper.map(requestDTO, Post.class);
     }
 
-    private CreatePostResponseDTO converToDto(Post post) {
+    private CreatePostResponseDTO convertToDto(Optional<Post> post) {
         return modelMapper.map(post, CreatePostResponseDTO.class);
     }
 }

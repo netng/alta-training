@@ -29,4 +29,17 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<CreatePostResponseDTO> getPostById(@PathVariable("id") long id) {
+        CreatePostResponseDTO response = postService.getPostById(id);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<CreatePostResponseDTO> updatePost(@PathVariable("id") long id, @RequestBody CreatePostRequestDTO request) {
+        CreatePostResponseDTO response = postService.updatePost(id, request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
