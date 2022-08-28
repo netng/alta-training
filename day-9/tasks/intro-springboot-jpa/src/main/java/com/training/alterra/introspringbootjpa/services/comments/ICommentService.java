@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 public interface ICommentService {
-    List<CreateCommentResponseDTO> getAllCommentsByPostId(Long id);
+    List<CreateCommentResponseDTO> getCommentsByPost(Long id);
 
-    CreateCommentResponseDTO createCommentByPostId(Long id, CreateCommentRequestDTO requestDTO);
+    CreateCommentResponseDTO createCommentByPost(Long id, CreateCommentRequestDTO requestDTO);
 }

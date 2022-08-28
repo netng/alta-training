@@ -28,12 +28,13 @@ public class CommentService implements ICommentService {
     ModelMapper modelMapper;
 
     @Override
-    public List<CreateCommentResponseDTO> getAllCommentsByPostId(Long id) {
-        return null;
+    public List<CreateCommentResponseDTO> getCommentsByPost(Long id) {
+        Optional<Post> post = postRepository.findById(id);
+        
     }
 
     @Override
-    public CreateCommentResponseDTO createCommentByPostId(Long id, CreateCommentRequestDTO requestDTO) {
+    public CreateCommentResponseDTO createCommentByPost(Long id, CreateCommentRequestDTO requestDTO) {
         Optional<Comment> comment = postRepository.findById(id).map(post -> {
             requestDTO.setPost(post);
             return commentRepository.save(convertToEntity(requestDTO));
