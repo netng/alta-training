@@ -3,6 +3,7 @@ package com.training.alterra.introspringbootjpa.services.posts;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 import com.training.alterra.introspringbootjpa.entities.Post;
+import com.training.alterra.introspringbootjpa.repositories.CommentRepository;
 import com.training.alterra.introspringbootjpa.repositories.PostRepository;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
@@ -15,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PostService implements IPostService{
+public class PostService implements IPostService {
 
     @Autowired
     PostRepository postRepository;

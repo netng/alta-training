@@ -12,39 +12,39 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
-public class PostController {
+public class PostsController {
 
     @Autowired
     IPostService postService;
 
     @GetMapping
-    public ResponseEntity<List<CreatePostResponseDTO>> getAllPosts() {
+    public ResponseEntity<List<CreatePostResponseDTO>> index() {
         List<CreatePostResponseDTO> reponse = postService.getAllPosts();
         return new ResponseEntity<>(reponse, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<CreatePostResponseDTO> createNewPost(@RequestBody CreatePostRequestDTO request) {
+    public ResponseEntity<CreatePostResponseDTO> create(@RequestBody CreatePostRequestDTO request) {
         CreatePostResponseDTO response = postService.createNewPost(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<CreatePostResponseDTO> getPostById(@PathVariable("id") long id) {
+    public ResponseEntity<CreatePostResponseDTO> show(@PathVariable("id") long id) {
         CreatePostResponseDTO response = postService.getPostById(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<CreatePostResponseDTO> updatePost(@PathVariable("id") long id, @RequestBody CreatePostRequestDTO request) {
+    public ResponseEntity<CreatePostResponseDTO> update(@PathVariable("id") long id, @RequestBody CreatePostRequestDTO request) {
         CreatePostResponseDTO response = postService.updatePost(id, request);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 
     @DeleteMapping("{id}")
-    public ResponseEntity<HttpStatus> deletePost(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> destroy(@PathVariable("id") long id) {
         postService.deletePost(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
