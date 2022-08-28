@@ -8,5 +8,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class CreatePostRequestDTO implements Serializable {
+
+    private String title;
     private String content;
 }

@@ -14,4 +14,6 @@ public interface IPostService {
 
     CreatePostResponseDTO updatePost(Long id, CreatePostRequestDTO requestDTO);
 
+    CreatePostResponseDTO deletePost(Long id);
+
 }

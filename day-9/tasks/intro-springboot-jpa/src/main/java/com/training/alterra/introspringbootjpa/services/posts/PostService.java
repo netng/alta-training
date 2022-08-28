@@ -47,6 +47,12 @@ public class PostService implements IPostService{
     }
 
     @Override
+    public CreatePostResponseDTO deletePost(Long id) {
+        postRepository.deleteById(id);
+        return null;
+    }
+
+    @Override
     public List<CreatePostResponseDTO> getAllPosts() {
         List<Post> posts = postRepository.findAll();
         if (!posts.isEmpty()) {

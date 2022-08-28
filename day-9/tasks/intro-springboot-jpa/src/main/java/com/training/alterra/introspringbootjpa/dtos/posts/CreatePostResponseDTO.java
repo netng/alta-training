@@ -13,6 +13,7 @@ import java.util.Date;
 public class CreatePostResponseDTO implements Serializable {
     private Long id;
 
+    private String title;
     private String content;
 
     @JsonIgnore
