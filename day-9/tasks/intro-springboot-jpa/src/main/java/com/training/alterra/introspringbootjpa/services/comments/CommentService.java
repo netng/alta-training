@@ -6,10 +6,13 @@ import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 import com.training.alterra.introspringbootjpa.entities.Comment;
 import com.training.alterra.introspringbootjpa.entities.Post;
+import com.training.alterra.introspringbootjpa.exceptions.ResourceNotFoundException;
 import com.training.alterra.introspringbootjpa.repositories.CommentRepository;
 import com.training.alterra.introspringbootjpa.repositories.PostRepository;
+import org.apache.coyote.Response;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -35,7 +38,7 @@ public class CommentService implements ICommentService {
         Optional<Post> postOptional = postRepository.findById(id);
 
         if (postOptional.isEmpty()) {
-            throw new NoSuchElementException("Post not found");
+            throw new ResourceNotFoundException("Post not found. Please check corresponding id");
         }
         Post post = postOptional.get();
 
@@ -58,6 +61,33 @@ public class CommentService implements ICommentService {
             return commentRepository.save(convertToEntity(requestDTO));
         });
         return convertToDto(comment);
+    }
+
+    @Override
+    public CreateCommentResponseDTO updateCommentByPost(
+            Long postId, Long commentId, CreateCommentRequestDTO requestDTO) {
+        Optional<Post> post = postRepository.findById(postId);
+
+        if (post.isEmpty()) {
+            throw new ResourceNotFoundException(String.format("Post not found with id %s", postId));
+        }
+
+        Optional<Comment> updatedComment = commentRepository.findById(commentId)
+                .map(comment -> {
+                    comment.setContent(requestDTO.getContent());
+                    return commentRepository.save(convertToEntity(requestDTO));
+                });
+        return convertToDto(updatedComment);
+    }
+
+    @Override
+    public CreateCommentResponseDTO deleteComment(Long postId, Long commentId) {
+        if (!postRepository.existsById(postId)) {
+            throw new ResourceNotFoundException("Post not found");
+        }
+
+        commentRepository.deleteById(commentId);
+        return null;
     }
 
     private Comment convertToEntity(CreateCommentRequestDTO requestDTO) {

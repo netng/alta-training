@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface ICommentService {
     List<CreateCommentResponseDTO> getCommentsByPost(Long id);
-
     CreateCommentResponseDTO createCommentByPost(Long id, CreateCommentRequestDTO requestDTO);
+    CreateCommentResponseDTO updateCommentByPost(Long postId, Long commentId, CreateCommentRequestDTO requestDTO);
+
+    CreateCommentResponseDTO deleteComment(Long postId, Long commentId);
 }
