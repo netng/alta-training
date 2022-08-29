@@ -12,8 +12,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentService implements ICommentService {
@@ -29,8 +32,23 @@ public class CommentService implements ICommentService {
 
     @Override
     public List<CreateCommentResponseDTO> getCommentsByPost(Long id) {
-        Optional<Post> post = postRepository.findById(id);
-        
+        Optional<Post> postOptional = postRepository.findById(id);
+
+        if (postOptional.isEmpty()) {
+            throw new NoSuchElementException("Post not found");
+        }
+        Post post = postOptional.get();
+
+        List<Comment> comments = commentRepository.findByPostId(id);
+
+        if (!comments.isEmpty()) {
+            return comments.stream()
+                    .map(comment -> modelMapper.map(comment, CreateCommentResponseDTO.class ))
+                    .collect(Collectors.toList());
+        }
+
+        return Collections.emptyList();
+
     }
 
     @Override
