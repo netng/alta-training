@@ -5,6 +5,8 @@
 #### Positive Case
 - CreateNewPost when valid value given
 - GetPostById when valid value given
+- UpdatePost
+- DestroyPost
 #### Negative Case
 - CreateNewPost when invalid value given
 - GetPostById when invalid value or resource not found
