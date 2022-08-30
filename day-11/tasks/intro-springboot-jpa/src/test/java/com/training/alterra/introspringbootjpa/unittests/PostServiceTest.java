@@ -85,4 +85,5 @@ public class PostServiceTest {
     public void givenNullRequest_whenCreateNewPost_thenShouldThrowException() {
         serviceUnderTest.createNewPost(null);
     }
+    
 }
