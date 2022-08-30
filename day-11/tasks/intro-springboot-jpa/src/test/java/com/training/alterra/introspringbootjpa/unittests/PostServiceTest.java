@@ -38,6 +38,9 @@ public class PostServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
+    /**
+     * @Positive case
+     */
     @Test
     public void givenValidRequest_whenCreateNewPost_thenShouldBeCreated() {
         CreatePostRequestDTO requestDTO = new CreatePostRequestDTO();
@@ -56,6 +59,28 @@ public class PostServiceTest {
         assertThat(responseDTO.getContent()).isEqualTo(requestDTO.getContent());
     }
 
+    @Test
+    public void givenValidRequest_whenGetPostById_thenShouldBeReturnValidPost() {
+        CreatePostRequestDTO requestDTO = new CreatePostRequestDTO();
+        requestDTO.setTitle("Code Dream");
+        requestDTO.setContent("When code make your wish and dream come true");
+
+        Post post = modelMapper.map(requestDTO, Post.class);
+        post.setId(100L);
+        postRepository.save(post);
+
+        when(postRepository.findById(post.getId())).thenReturn(Optional.of(post));
+
+        CreatePostResponseDTO responseDTO = serviceUnderTest.getPostById(100L);
+        assertThat(responseDTO.getId()).isEqualTo(100L);
+        assertThat(responseDTO.getTitle()).isEqualTo(requestDTO.getTitle());
+        assertThat(responseDTO.getContent()).isEqualTo(requestDTO.getContent());
+
+    }
+
+    /**
+     * @Negative case
+     */
     @Test(expected = ValidationErrorException.class)
     public void givenNullRequest_whenCreateNewPost_thenShouldThrowException() {
         serviceUnderTest.createNewPost(null);
