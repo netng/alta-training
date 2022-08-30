@@ -79,6 +79,45 @@ public class PostServiceTest {
 
     }
 
+    @Test
+    public void givenValidRequest_whenUpdatePost_shouldBeReturnValidUpdatedPost() {
+        CreatePostRequestDTO requestDTO = new CreatePostRequestDTO();
+        requestDTO.setTitle("Code Dream");
+        requestDTO.setContent("When code make your dream and wish come true");
+
+        Post post = modelMapper.map(requestDTO, Post.class);
+        post.setId(100L);
+        postRepository.save(post);
+
+        when(postRepository.findById(post.getId())).thenReturn(Optional.of(post));
+
+        CreatePostRequestDTO updateRequestDTO = new CreatePostRequestDTO();
+        updateRequestDTO.setTitle("Code Tester");
+        updateRequestDTO.setContent("Good code, good test ");
+
+
+        CreatePostResponseDTO responseDTO = serviceUnderTest.updatePost(100L, updateRequestDTO);
+        assertThat(responseDTO.getId()).isEqualTo(100L);
+        assertThat(responseDTO.getTitle()).isEqualTo(updateRequestDTO.getTitle());
+        assertThat(responseDTO.getContent()).isEqualTo(updateRequestDTO.getContent());
+    }
+
+    @Test
+    public void destroyPost() {
+        CreatePostRequestDTO requestDTO = new CreatePostRequestDTO();
+        requestDTO.setTitle("Code Dream");
+        requestDTO.setContent("When code make your dream and wish come true");
+
+        Post post = modelMapper.map(requestDTO, Post.class);
+        post.setId(100L);
+        postRepository.save(post);
+
+        when(postRepository.findById(post.getId())).thenReturn(Optional.of(post));
+
+        CreatePostResponseDTO responseDTO = serviceUnderTest.deletePost(post.getId());
+        assertThat(responseDTO).isEqualTo(null);
+    }
+
     /**
      * @Negative case
      */
