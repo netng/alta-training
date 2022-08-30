@@ -3,6 +3,7 @@ package com.training.alterra.introspringbootjpa.services.posts;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 import com.training.alterra.introspringbootjpa.entities.Post;
+import com.training.alterra.introspringbootjpa.exceptions.ResourceNotFoundException;
 import com.training.alterra.introspringbootjpa.exceptions.ValidationErrorException;
 import com.training.alterra.introspringbootjpa.repositories.CommentRepository;
 import com.training.alterra.introspringbootjpa.repositories.PostRepository;
@@ -40,6 +41,9 @@ public class PostService implements IPostService {
     @Override
     public CreatePostResponseDTO getPostById(Long id) {
         Optional<Post> post = postRepository.findById(id);
+        if (post.isEmpty()) {
+            throw new ResourceNotFoundException("post not found!");
+        }
         return convertToDto(post);
     }
 
