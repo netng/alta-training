@@ -3,6 +3,7 @@ package com.training.alterra.introspringbootjpa.unittests;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 import com.training.alterra.introspringbootjpa.entities.Post;
+import com.training.alterra.introspringbootjpa.exceptions.ResourceNotFoundException;
 import com.training.alterra.introspringbootjpa.exceptions.ValidationErrorException;
 import com.training.alterra.introspringbootjpa.repositories.PostRepository;
 import com.training.alterra.introspringbootjpa.services.posts.PostService;
@@ -85,5 +86,10 @@ public class PostServiceTest {
     public void givenNullRequest_whenCreateNewPost_thenShouldThrowException() {
         serviceUnderTest.createNewPost(null);
     }
-    
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void givenInvalidRequestId_whenGetPostById_thenShouldThrowException() {
+        serviceUnderTest.getPostById(10111L);
+    }
+
 }
