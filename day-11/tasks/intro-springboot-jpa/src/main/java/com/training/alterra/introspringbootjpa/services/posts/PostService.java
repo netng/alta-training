@@ -3,9 +3,11 @@ package com.training.alterra.introspringbootjpa.services.posts;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostRequestDTO;
 import com.training.alterra.introspringbootjpa.dtos.posts.CreatePostResponseDTO;
 import com.training.alterra.introspringbootjpa.entities.Post;
+import com.training.alterra.introspringbootjpa.exceptions.ValidationErrorException;
 import com.training.alterra.introspringbootjpa.repositories.CommentRepository;
 import com.training.alterra.introspringbootjpa.repositories.PostRepository;
 import lombok.SneakyThrows;
+import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,7 @@ public class PostService implements IPostService {
     @SneakyThrows
     @Override
     public CreatePostResponseDTO createNewPost(CreatePostRequestDTO requestDTO) {
+        validate(requestDTO);
         Post post = convertToEntity(requestDTO);
 
         Post createdPost = postRepository.save(post);
@@ -63,6 +66,20 @@ public class PostService implements IPostService {
         }
 
         return Collections.emptyList();
+    }
+
+    private void validate(CreatePostRequestDTO requestDTO) {
+        if (requestDTO == null) {
+            throw new ValidationErrorException("Body request cannot be empty");
+        }
+
+        if (StringUtils.isEmpty(requestDTO.getTitle())) {
+            throw new ValidationErrorException("title cannot be blank");
+        }
+
+        if (StringUtils.isEmpty(requestDTO.getContent())) {
+            throw new ValidationErrorException("content cannot be blank");
+        }
     }
 
     private Post convertToEntity(CreatePostRequestDTO requestDTO) {
