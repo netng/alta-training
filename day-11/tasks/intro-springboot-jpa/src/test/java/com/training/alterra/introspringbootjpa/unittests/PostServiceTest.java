@@ -56,8 +56,8 @@ public class PostServiceTest {
         assertThat(responseDTO.getContent()).isEqualTo(requestDTO.getContent());
     }
 
-    //@Test(expected = ValidationErrorException.class)
-    //public void givenNullRequest_whenCreateNewPost_thenShouldThrowException() {
-    //    serviceUnderTest.createNewPost(null);
-    //}
+    @Test(expected = ValidationErrorException.class)
+    public void givenNullRequest_whenCreateNewPost_thenShouldThrowException() {
+        serviceUnderTest.createNewPost(null);
+    }
 }
