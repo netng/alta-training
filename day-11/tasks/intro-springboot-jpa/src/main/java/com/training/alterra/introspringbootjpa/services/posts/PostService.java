@@ -50,8 +50,10 @@ public class PostService implements IPostService {
     @Override
     public CreatePostResponseDTO updatePost(Long id, CreatePostRequestDTO requestDTO) {
         Optional<Post> post = postRepository.findById(id);
+        post.get().setTitle(requestDTO.getTitle());
         post.get().setContent(requestDTO.getContent());
-        return convertToDto(Optional.of(postRepository.save(post.get())));
+        Post updatedPost = postRepository.save(post.get());
+        return convertToDto(Optional.of(updatedPost));
     }
 
     @Override
