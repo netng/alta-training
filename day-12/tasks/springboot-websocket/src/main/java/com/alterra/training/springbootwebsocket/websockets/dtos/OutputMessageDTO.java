@@ -5,12 +5,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OutputMessage {
+public class OutputMessageDTO {
     private String from;
     private String text;
     private String time;
 
-    public OutputMessage(final String from, final String text, final String time) {
+    public OutputMessageDTO(final String from, final String text, final String time) {
 
         this.from = from;
         this.text = text;
