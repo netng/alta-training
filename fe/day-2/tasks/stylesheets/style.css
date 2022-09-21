@@ -1,0 +1,12 @@
+.jumbotron {
+  padding-top: 100px;
+}
+
+section {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+
+.list-about {
+  list-style-type: "-";
+}
