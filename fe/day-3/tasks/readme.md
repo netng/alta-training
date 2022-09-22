@@ -1,9 +1,9 @@
-![tugas-fe-day-3](https://github.com/netng/alta-training/blob/main/fe/day-3/tasks/tugas-fe-day-3.png)
 ## Jawaban pertanyaan point 1
 
 Bisa dicek langsung pada kode index.js
 
 ## Jawaban pertanyaan point 2
+![tugas-fe-day-3](https://github.com/netng/alta-training/blob/main/fe/day-3/tasks/tugas-fe-day-3.png)
 
 ### a. Jelaskan kenapa baris 21,22,23 tidak dapat tampil?
 
