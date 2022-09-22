@@ -1,3 +1,4 @@
+[tugas-fe-day-3](!)
 ## Jawaban pertanyaan point 1
 
 Bisa dicek langsung pada kode index.js
