@@ -9,3 +9,8 @@ section {
 .list-about {
   list-style-type: "-";
 }
+
+svg {
+  position: relative;
+  top: 1px;
+}
