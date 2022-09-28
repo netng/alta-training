@@ -1,0 +1,17 @@
+<p>Id: <input id="p_id" name="id" [(ngModel)]="newPassenger.p_id"></p>
+<p>Name: <input id="p_name" name="name" [(ngModel)]="newPassenger.p_name"></p>
+<p>City: <input id="p_city" name="city" [(ngModel)]="newPassenger.p_city"></p>
+<button type="button" (click)="addPassenger()">Add</button>
+
+<table>
+    <thead>
+        <td>id</td>
+        <td>name</td>
+        <td>city</td>
+    </thead>
+    <tbody *ngFor="let passenger of passengers | keyvalue">
+        <td>{{passenger.key}}</td>
+        
+
+    </tbody>
+</table>
