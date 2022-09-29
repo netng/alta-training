@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-add-passenger
+            (passengerAdded)="onPassengerAdd($event)"
+        ></app-add-passenger>
+    </div>
+    <div class="col-md-4 ms-5">
+        <app-single-passenger
+            [passengers]="passengers"
+        ></app-single-passenger>
+    </div>
+</div>

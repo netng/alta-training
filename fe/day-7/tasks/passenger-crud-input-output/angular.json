@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-simple-crud": {
+    "passenger-crud-input-output": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-simple-crud",
+            "outputPath": "dist/passenger-crud-input-output",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -64,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-simple-crud:build:production"
+              "browserTarget": "passenger-crud-input-output:build:production"
             },
             "development": {
-              "browserTarget": "angular-simple-crud:build:development"
+              "browserTarget": "passenger-crud-input-output:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-simple-crud:build"
+            "browserTarget": "passenger-crud-input-output:build"
           }
         },
         "test": {
