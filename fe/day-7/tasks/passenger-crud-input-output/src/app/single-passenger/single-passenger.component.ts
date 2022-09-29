@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { IPassenger } from '../models/IPassenger';
 
 @Component({
@@ -9,10 +9,16 @@ import { IPassenger } from '../models/IPassenger';
 export class SinglePassengerComponent implements OnInit {
 
   @Input() passengers: IPassenger[] = [];
+  @Input() passenger: IPassenger | null = null;
+  @Output() passengerEdited = new EventEmitter<IPassenger>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onEditPassenger() {
+    this.passenger && this.passengerEdited.emit(this.passenger);
   }
 
 }

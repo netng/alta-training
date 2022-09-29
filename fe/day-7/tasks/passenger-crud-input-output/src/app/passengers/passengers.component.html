@@ -4,9 +4,12 @@
             (passengerAdded)="onPassengerAdd($event)"
         ></app-add-passenger>
     </div>
-    <div class="col-md-4 ms-5">
+    <div class="col-md-4">
         <app-single-passenger
             [passengers]="passengers"
         ></app-single-passenger>
+    </div>
+    <div class="col-md-4">
+        <app-edit-passenger></app-edit-passenger>
     </div>
 </div>

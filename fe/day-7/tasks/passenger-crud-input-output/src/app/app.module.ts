@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PassengersComponent } from './passengers/passengers.component';
 import { SinglePassengerComponent } from './single-passenger/single-passenger.component';
 import { AddPassengerComponent } from './add-passenger/add-passenger.component';
+import { EditPassengerComponent } from './edit-passenger/edit-passenger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PassengersComponent,
     SinglePassengerComponent,
-    AddPassengerComponent
+    AddPassengerComponent,
+    EditPassengerComponent
   ],
   imports: [
     BrowserModule,
