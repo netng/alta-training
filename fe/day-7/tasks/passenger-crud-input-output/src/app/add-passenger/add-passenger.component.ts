@@ -24,5 +24,7 @@ export class AddPassengerComponent implements OnInit {
       city: this.city,
     };
     this.passengerAdded.emit(passenger);
+    this.name = '';
+    this.city = '';
   }
 }
