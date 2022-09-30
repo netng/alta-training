@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPassenger } from '../models/IPassenger';
 
 @Component({
@@ -6,17 +6,29 @@ import { IPassenger } from '../models/IPassenger';
   templateUrl: './edit-passenger.component.html',
   styleUrls: ['./edit-passenger.component.css']
 })
-export class EditPassengerComponent implements OnInit {
+export class EditPassengerComponent {
 
   @Input() passenger!: IPassenger;
+  @Output() passengerUpdated = new EventEmitter<IPassenger>();
   name: string = '';
   city: string = '';
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.name = this.passenger.name;
     this.city = this.passenger.city;
   }
+
+  onUpdatePassenger() {
+    let passenger: IPassenger = {
+      id: this.passenger.id,
+      name: this.name,
+      city: this.city
+    };
+    this.passengerUpdated.emit(passenger);
+  }
+
+  
 
 }

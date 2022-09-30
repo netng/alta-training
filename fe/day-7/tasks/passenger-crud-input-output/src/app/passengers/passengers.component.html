@@ -13,7 +13,8 @@
     <div class="col-md-4">
         <app-edit-passenger
             *ngIf="editPassengerDetails"
-            [passenger]="editPassengerDetails">
+            [passenger]="editPassengerDetails"
+            (passengerUpdated)="onUpdatePassenger($event)">
         </app-edit-passenger>
     </div>
 </div>

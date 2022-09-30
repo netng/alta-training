@@ -28,4 +28,13 @@ export class PassengersComponent implements OnInit {
     this.editPassengerDetails = passenger;
   }
 
+  onUpdatePassenger(passenger: IPassenger) {
+    this.passengers = this.passengers.map(pa => {
+      if (passenger.id == pa.id) {
+        return passenger;
+      }
+      return pa;
+    });
+  }
+
 }
