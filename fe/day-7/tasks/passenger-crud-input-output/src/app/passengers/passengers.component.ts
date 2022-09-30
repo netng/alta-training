@@ -8,9 +8,7 @@ import { IPassenger } from '../models/IPassenger';
 })
 export class PassengersComponent implements OnInit {
 
-  passengers: IPassenger[] = [
-    {id: 1, name: 'nandang', city: 'bogor'},
-  ];
+  passengers: IPassenger[] = [];
 
   editPassengerDetails: IPassenger | null = null;
 
@@ -37,4 +35,7 @@ export class PassengersComponent implements OnInit {
     });
   }
 
+  onPassengerDelete(passenger: IPassenger) {
+    this.passengers = this.passengers.filter(pa => pa.id != passenger.id);
+  }
 }

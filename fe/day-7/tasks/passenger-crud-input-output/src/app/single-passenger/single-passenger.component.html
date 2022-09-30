@@ -13,7 +13,8 @@
             <td>{{passenger.name}}</td>
             <td>{{passenger.city}}</td>
             <td>
-                <button class="btn btn-warning btn-sm mx-1" (click)="onEditPassenger(passenger)">Edit</button> | 
+                <button class="btn btn-warning btn-sm mx-1" (click)="onEditPassenger(passenger)">Edit</button> 
+                <button class="btn btn-danger btn-sm mx-1" (click)="onDeletePassenger(passenger)">Delete</button> 
             </td>
         </tr>
     </tbody>

@@ -8,6 +8,7 @@
         <app-single-passenger
             [passengers]="passengers"
             (passengerEdited)="onPassengerEdited($event)"
+            (passengerDeleted)="onPassengerDelete($event)"
         ></app-single-passenger>
     </div>
     <div class="col-md-4">
