@@ -17,7 +17,8 @@ export class SinglePassengerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEditPassenger() {
+  onEditPassenger(passenger: IPassenger) {
+    this.passenger = passenger;
     console.log(this.passenger);
     this.passenger && this.passengerEdited.emit(this.passenger);
   }
