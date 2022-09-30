@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IPassenger } from '../models/IPassenger';
 
 @Component({
   selector: 'app-edit-passenger',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPassengerComponent implements OnInit {
 
+  @Input() passenger!: IPassenger;
+  name: string = '';
+  city: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    this.name = this.passenger.name;
+    this.city = this.passenger.city;
   }
 
 }

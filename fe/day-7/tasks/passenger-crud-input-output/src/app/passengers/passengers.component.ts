@@ -12,6 +12,8 @@ export class PassengersComponent implements OnInit {
     {id: 1, name: 'nandang', city: 'bogor'},
   ];
 
+  editPassengerDetails: IPassenger | null = null;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +22,10 @@ export class PassengersComponent implements OnInit {
   onPassengerAdd(passenger: IPassenger) {
     passenger.id = this.passengers.length + 1;
     this.passengers.push(passenger);
+  }
+
+  onPassengerEdited(passenger: IPassenger) {
+    this.editPassengerDetails = passenger;
   }
 
 }

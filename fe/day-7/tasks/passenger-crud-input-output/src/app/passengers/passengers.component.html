@@ -7,9 +7,13 @@
     <div class="col-md-4">
         <app-single-passenger
             [passengers]="passengers"
+            (passengerEdited)="onPassengerEdited($event)"
         ></app-single-passenger>
     </div>
     <div class="col-md-4">
-        <app-edit-passenger></app-edit-passenger>
+        <app-edit-passenger
+            *ngIf="editPassengerDetails"
+            [passenger]="editPassengerDetails">
+        </app-edit-passenger>
     </div>
 </div>

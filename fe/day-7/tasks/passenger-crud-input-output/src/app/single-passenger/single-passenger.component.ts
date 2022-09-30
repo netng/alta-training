@@ -18,6 +18,7 @@ export class SinglePassengerComponent implements OnInit {
   }
 
   onEditPassenger() {
+    console.log(this.passenger);
     this.passenger && this.passengerEdited.emit(this.passenger);
   }
 
