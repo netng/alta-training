@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let passenger of passengers">
+        <tr>
+            <th scope="row">{{passenger.id}}</th>
+            <td>{{passenger.name}}</td>
+            <td>{{passenger.city}}</td>
+            <th>
+            <button class="btn btn-warning btn-sm me-2" (click)="onEditPassenger(passenger)">Edit</button>
+            <button class="btn btn-danger btn-sm">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+</table>

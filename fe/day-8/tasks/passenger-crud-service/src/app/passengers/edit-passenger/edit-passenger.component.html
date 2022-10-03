@@ -1,0 +1,17 @@
+<h5>Edit Passenger</h5>
+
+<div>
+    <label for="name">Name</label>
+    <input id="name" type="text" class="form-control" [(ngModel)]="name" />
+</div>
+
+<div>
+    <label for="city">City</label>
+    <input id="city" type="text" class="form-control" [(ngModel)]="city" />
+</div>
+
+<div class="mt-2">
+    <button class="btn btn-primary" (click)="onUpdate()">
+        Update
+    </button>
+</div>
