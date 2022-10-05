@@ -1,0 +1,23 @@
+<table class="table" [ngClass]="['table-striped', 'mt-4']">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let passenger of passengers">
+            <td>{{ passenger.id }}</td>
+            <td>{{ passenger.name }}</td>
+            <td>{{ passenger.city }}</td>
+            <td>
+                <button 
+                    class="btn"
+                    [ngClass]="['btn-success']"
+                    (click)="showPassenger(passenger.id)">Show</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
