@@ -1,17 +1,22 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IArticle, IBaseArticle } from '../models/IArticle';
+
+const apiURL = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleRestApiServiceTsService {
 
-  apiURL: string = 'http://localhost:3000';
   message?: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,17 +26,25 @@ export class ArticleRestApiServiceTsService {
 
   getArticles(): Observable<IArticle[]> {
     return this.http
-      .get<IArticle[]>(this.apiURL + '/articles');
+      .get<IArticle[]>(apiURL + '/articles');
   }
 
   getArticle(id: number): Observable<IArticle> {
     return this.http
-      .get<IArticle>(`${this.apiURL}/articles/${id}`);
+      .get<IArticle>(`${apiURL}/articles/${id}`);
   }
 
   updateArticle(id: number, data: IBaseArticle) {
-    console.log('update');
     return this.http
-      .put(`${this.apiURL}/articles/${id}`, data);
+      .put(`${apiURL}/articles/${id}`, data);
+  }
+
+  deleteArticle(id: number): Observable<any> {
+    return this.http
+      .delete(`${apiURL}/articles/${id}`);
+  }
+
+  cancel() {
+    this.router.navigate(['/articles-management']);
   }
 }

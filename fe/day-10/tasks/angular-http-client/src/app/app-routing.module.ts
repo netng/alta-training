@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticlesManagementComponent } from './articles-management/articles-management.component';
+import { ArticlesTableComponent } from './articles-table/articles-table.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { HomeComponent } from './home/home.component';
 

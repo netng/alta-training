@@ -51,4 +51,8 @@ export class EditArticleComponent implements OnInit {
         error: (e) => console.error(e),
       });
   }
+
+  onCancel(): void {
+    this.apiArticleService.cancel();
+  }
 }

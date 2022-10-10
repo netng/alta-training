@@ -1,28 +1,3 @@
 {
-  "articles": [
-    {
-      "id": 1,
-      "title": "title 1 update",
-      "description": "article description 1 update",
-      "is_published": 0
-    },
-    {
-      "id": 2,
-      "title": "title 2",
-      "description": "article description 2",
-      "is_published": 1
-    },
-    {
-      "id": 3,
-      "title": "title 3",
-      "description": "article description 3",
-      "is_published": 1
-    },
-    {
-      "id": 4,
-      "title": "title 4 update",
-      "description": "article description 4 ok sip",
-      "is_published": 0
-    }
-  ]
+  "articles": []
 }

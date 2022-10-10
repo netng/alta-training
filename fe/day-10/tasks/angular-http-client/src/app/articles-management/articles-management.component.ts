@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Article } from '../models/Article';
 import { IArticle } from '../models/IArticle';
 import { ArticleRestApiServiceTsService } from '../services/article-rest-api.service.ts.service';
