@@ -5,7 +5,10 @@
                 {{message}}
             </div>
 
-            <app-articles-table [articles]="articles"></app-articles-table>
+            <app-articles-table 
+                (message)="getMessage($event)"
+                [articles]="articles"
+            ></app-articles-table>
         </div>
     </div>
 </div>

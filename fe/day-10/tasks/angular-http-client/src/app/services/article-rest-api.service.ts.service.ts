@@ -39,6 +39,11 @@ export class ArticleRestApiServiceTsService {
       .put(`${apiURL}/articles/${id}`, data);
   }
 
+  publishArticle(id: number, data: IBaseArticle) {
+    return this.http
+      .put(`${apiURL}/articles/${id}`, data);
+  }
+
   deleteArticle(id: number): Observable<any> {
     return this.http
       .delete(`${apiURL}/articles/${id}`);

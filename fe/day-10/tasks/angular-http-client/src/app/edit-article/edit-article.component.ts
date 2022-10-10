@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Article } from '../models/Article';
 import { IArticle, IBaseArticle } from '../models/IArticle';
 import { ArticleRestApiServiceTsService } from '../services/article-rest-api.service.ts.service';
 
@@ -13,7 +12,8 @@ export class EditArticleComponent implements OnInit {
 
   article: IBaseArticle = {
     title: '',
-    description: ''
+    description: '',
+    is_published: 0
   };
 
   id!: number;

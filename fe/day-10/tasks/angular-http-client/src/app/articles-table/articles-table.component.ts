@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Article } from '../models/Article';
+import { IArticle, IBaseArticle } from '../models/IArticle';
 import { ArticleRestApiServiceTsService } from '../services/article-rest-api.service.ts.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { ArticleRestApiServiceTsService } from '../services/article-rest-api.ser
 })
 export class ArticlesTableComponent implements OnInit {
 
-  @Input() articles: Article[] | null = null;
+  @Input() articles: IArticle[] | null = null;
+  @Output() message = new EventEmitter<string>();
 
   constructor(
     private router: Router,
@@ -46,4 +47,25 @@ export class ArticlesTableComponent implements OnInit {
       });
   }
 
+  onPublish(id: number, article: IBaseArticle) {
+    article.is_published = 1;
+    this.articleApiService.publishArticle(id, article)
+      .subscribe({
+        next: (data) => {
+          this.message.emit('successfully publishing data');
+          this.router.navigate(['/articles-management']);
+        }
+      })
+  }
+
+  onUnPublish(id: number, article: IBaseArticle) {
+    article.is_published = 0;
+    this.articleApiService.publishArticle(id, article)
+      .subscribe({
+        next: (data) => {
+          this.message.emit('successfully Un Publishing data');
+          this.router.navigate(['/articles-management']);
+        }
+      })
+  }
 }
