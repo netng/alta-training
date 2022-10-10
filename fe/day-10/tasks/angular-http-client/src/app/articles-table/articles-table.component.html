@@ -13,8 +13,15 @@
             <td>{{article.title}}</td>
             <td>{{article.description}}</td>
             <td>
-                <button class="btn btn-success me-2">Publish</button>
-                <button class="btn btn-warning me-2">Edit</button>
+                <button 
+                    class="btn btn-success me-2"
+                >Publish</button>
+
+                <button 
+                    class="btn btn-warning me-2"
+                    (click)="onEditArticle(article.id)"
+                >Edit</button>
+
                 <button class="btn btn-danger">Delete</button>
             </td>
 

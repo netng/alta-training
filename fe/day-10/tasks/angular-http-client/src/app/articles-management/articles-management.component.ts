@@ -11,7 +11,7 @@ export class ArticlesManagementComponent implements OnInit {
 
   articles: Article[] | null = null;
 
-  constructor(private restApi: ArticleRestApiServiceTsService) { }
+  constructor(private articleApiService: ArticleRestApiServiceTsService) { }
 
   ngOnInit(): void {
     this.getEmployees();
@@ -19,7 +19,7 @@ export class ArticlesManagementComponent implements OnInit {
   }
 
   getEmployees() {
-    this.restApi.getEmployees()
+    this.articleApiService.getArticles()
       .subscribe({
         next: (data) => {
           this.articles = data;

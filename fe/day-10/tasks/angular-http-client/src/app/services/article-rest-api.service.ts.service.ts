@@ -19,8 +19,17 @@ export class ArticleRestApiServiceTsService {
       }),
   };
 
-  getEmployees(): Observable<Article[]> {
+  getArticles(): Observable<Article[]> {
     return this.http
       .get<Article[]>(this.apiURL + '/articles');
+  }
+
+  getArticle(id: number): Observable<Article> {
+    return this.http
+      .get<Article>(`${this.apiURL}/articles/${id}`);
+  }
+
+  updateArticle(id: number, data: Article) {
+    console.log('update');
   }
 }
