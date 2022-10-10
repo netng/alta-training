@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError, retry } from 'rxjs';
-import { Article } from '../models/Article';
-import { IArticle } from '../models/IArticle';
+import { Observable } from 'rxjs';
+import { IArticle, IBaseArticle } from '../models/IArticle';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +9,7 @@ import { IArticle } from '../models/IArticle';
 export class ArticleRestApiServiceTsService {
 
   apiURL: string = 'http://localhost:3000';
+  message?: string;
 
   constructor(private http: HttpClient) { }
 
@@ -19,17 +19,19 @@ export class ArticleRestApiServiceTsService {
       }),
   };
 
-  getArticles(): Observable<Article[]> {
+  getArticles(): Observable<IArticle[]> {
     return this.http
-      .get<Article[]>(this.apiURL + '/articles');
+      .get<IArticle[]>(this.apiURL + '/articles');
   }
 
-  getArticle(id: number): Observable<Article> {
+  getArticle(id: number): Observable<IArticle> {
     return this.http
-      .get<Article>(`${this.apiURL}/articles/${id}`);
+      .get<IArticle>(`${this.apiURL}/articles/${id}`);
   }
 
-  updateArticle(id: number, data: Article) {
+  updateArticle(id: number, data: IBaseArticle) {
     console.log('update');
+    return this.http
+      .put(`${this.apiURL}/articles/${id}`, data);
   }
 }

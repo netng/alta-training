@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../models/Article';
+import { IArticle, IBaseArticle } from '../models/IArticle';
 import { ArticleRestApiServiceTsService } from '../services/article-rest-api.service.ts.service';
 
 @Component({
@@ -10,18 +11,22 @@ import { ArticleRestApiServiceTsService } from '../services/article-rest-api.ser
 })
 export class EditArticleComponent implements OnInit {
 
-  article: Article = {
+  article: IBaseArticle = {
     title: '',
     description: ''
   };
 
+  id!: number;
+
   constructor(
     private route: ActivatedRoute,
-    private apiArticleService: ArticleRestApiServiceTsService
+    private apiArticleService: ArticleRestApiServiceTsService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
     this.getArticle(this.route.snapshot.params['id']);
+    this.id = this.route.snapshot.params['id'];
   }
 
   getArticle(id: number): void {
@@ -29,12 +34,21 @@ export class EditArticleComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.article = data;
+          console.log(this.article);
         },
         error: (e) => console.log(e),
       });
   }
 
   onUpdateArticle(): void {
-    this.apiArticleService.updateArticle()
+    this.apiArticleService.updateArticle(this.id, this.article)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.apiArticleService.message = `successfully updating article with id ${this.id}`;
+          this.router.navigate(['/articles-management']);
+        },
+        error: (e) => console.error(e),
+      });
   }
 }

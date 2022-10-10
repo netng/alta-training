@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../models/Article';
+import { IArticle } from '../models/IArticle';
 import { ArticleRestApiServiceTsService } from '../services/article-rest-api.service.ts.service';
 
 @Component({
@@ -9,21 +10,21 @@ import { ArticleRestApiServiceTsService } from '../services/article-rest-api.ser
 })
 export class ArticlesManagementComponent implements OnInit {
 
-  articles: Article[] | null = null;
+  articles: IArticle[] | null = null;
+  message?: string;
 
   constructor(private articleApiService: ArticleRestApiServiceTsService) { }
 
   ngOnInit(): void {
-    this.getEmployees();
-    console.log(this.articles);
+    this.getArticles();
+    this.message = this.articleApiService.message;
   }
 
-  getEmployees() {
+  getArticles() {
     this.articleApiService.getArticles()
       .subscribe({
         next: (data) => {
           this.articles = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });

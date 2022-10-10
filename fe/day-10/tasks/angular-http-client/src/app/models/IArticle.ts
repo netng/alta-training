@@ -1,5 +1,8 @@
-export interface IArticle {
-    id?: number;
-    title?: string;
-    description?: string;
+export interface IBaseArticle {
+    title: string;
+    description: string;
+}
+
+export interface IArticle extends IBaseArticle {
+    id: number;
 }
