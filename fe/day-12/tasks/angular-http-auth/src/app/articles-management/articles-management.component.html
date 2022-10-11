@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <div *ngIf="message" class="alert alert-success" role="alert">
+                {{message}}
+            </div>
+
+            <app-articles-table 
+                (message)="getMessage($event)"
+                [articles]="articles"
+            ></app-articles-table>
+        </div>
+    </div>
+</div>

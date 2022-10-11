@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" [(ngModel)]="article.title" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" rows="6" [(ngModel)]="article.description"></textarea>
+            </div>
+
+            <div class="form-group mt-2">
+                <button class="btn btn-primary" (click)="onUpdateArticle()">Update</button>
+                <button class="btn btn-warning ms-2" (click)="onCancel()">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>

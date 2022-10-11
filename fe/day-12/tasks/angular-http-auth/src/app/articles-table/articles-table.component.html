@@ -1,0 +1,43 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let article of articles">
+            <td>{{article.id}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.description}}</td>
+            <td>{{article.is_published == 1 ? 'published' : 'draft'}}</td>
+            <td>
+                <div *ngIf="article.is_published == 0; else notPublished">
+                    <button 
+                        class="btn btn-success me-2"
+                        (click)="onPublish(article.id, article)"
+                    >Publish</button>
+                </div>
+                <div>
+                    <ng-template #notPublished>
+                        <button 
+                            class="btn btn-success me-2"
+                            (click)="onUnPublish(article.id, article)"
+                        >Unpublish</button>
+                    </ng-template>
+                </div>
+
+                <button 
+                    class="btn btn-warning me-2"
+                    (click)="onEditArticle(article.id)"
+                >Edit</button>
+
+                <button class="btn btn-danger" (click)="onDeleteArticle(article.id)">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
